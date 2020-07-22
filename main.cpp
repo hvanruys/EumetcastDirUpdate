@@ -7,6 +7,9 @@
 #include <QRegularExpression>
 #include <QBasicTimer>
 #include <QTimer>
+#include <iostream>
+
+using namespace std;
 
 struct FileTemplate {
     QString filetemplate;
@@ -141,14 +144,14 @@ void MoveTheFiles(const QString &thedir, bool bListfiles)
             {
                 filename = completelist.at(i);
                 if(bListfiles)
-                    qDebug() << "File " << filename << " moved";
+                    cout << "File " << filename.toStdString() << " moved" << endl;
                 MoveToDirectory(filename, complete_startdate.at(i), dir);
             }
             else
             {
                 filename = completelist.at(i);
                 if(bListfiles)
-                    qDebug() << "File " << filename << " deleted";
+                    cout << "File " << filename.toStdString() << " deleted" << endl;
                 dir.remove(filename);
             }
         }
@@ -201,6 +204,8 @@ void MoveToDirectory(QString filename, int thestartdate, QDir dir)
                             dir.absolutePath() + "/" +  fileyear + "/" + filemonth + "/" + fileday + "/" + filename);
 
     }
+    else
+        dir.remove(filename);
 
 }
 
