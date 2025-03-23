@@ -1,4 +1,4 @@
-EumetcastDirUpdate
+EumetcastDirUpdate (deprecated)
 ==================
 
 is a small C++ program that moves the received files from Eumetcast to a subdirectory YYYY/MM/DD. 
